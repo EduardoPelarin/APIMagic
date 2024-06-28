@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "e5eb245c-a4f7-45d9-a242-97ef4684052e",
+		"name": "API de Cartas de Magic: The Gathering",
+		"description": "A **API de Cartas de Magic: The Gathering** é uma interface projetada para permitir que desenvolvedores integrem facilmente informações sobre as cartas de Magic: The Gathering em suas aplicações. Esta API fornece acesso a banco de dados contendo detalhes completos das cartas, incluindo atributos, habilidades e imagens. Abaixo estão as principais funcionalidades e endpoints oferecidos pela API:\n\n#### Funcionalidades Principais\n\n1. **Busca de Cartas**: Permite pesquisar cartas por nome. Ideal para encontrar cartas específicas ou fazer listas personalizadas.\n    \n2. **Detalhes da Carta**: Fornece informações detalhadas sobre uma carta específica, incluindo descrição completa, habilidades e ilustrações.\n    \n3. **Gerenciamento de Deck**: Permite adicionar e excluir cadastas de seu proprio deck. Facilita a construção e manutenção personalizado do seu deck.\n    \n4. **Autenticação e Controle de Acesso**: Sistema de autenticação robusto para garantir que apenas usuários autorizados possam acessar e modificar informações sensíveis.\n    \n5. **Cadastro de Cartas:** Permite fazer o cadastro de novas cartas que não estejam no banco de dados da API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22344259"
+	},
+	"item": [
+		{
+			"name": "Cadastro de Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost/ApiMagic/cadastro",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cadastro"
+					]
+				},
+				"description": "### Adicionar usuário\n\nEsse endpoint permite adicionar novos usuários à API para sua utilização.\n\n#### Corpo da Requisição\n\n- `Método`: POST\n    \n- `URL`: localhost/ApiMagic/cartas/lista\n    \n- `usuario` (text): O nome de usuário.\n    \n- `senha` (text): A senha do usuário.\n    \n\n#### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Verificação de Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost/ApiMagic/login",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"login"
+					]
+				},
+				"description": "### Login\n\nEsse endpoint é utilizado para fazer a verificação do usuário já cadastrado.\n\n#### Corpo da Requisição\n\n- `Método`: POST\n    \n- `URL`: localhost/ApiMagic/login.\n    \n- `usuario` (text): O nome de usuário.\n    \n- `senha` (text): A senha do usuário.\n    \n- `Authorization:`Token gerado no cadastro do usuário\n    \n\n#### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de Cartas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost/ApiMagic/cartas/cadastro",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cartas",
+						"cadastro"
+					]
+				},
+				"description": "## Cadastro de cartas\n\nEste endpoint da API é usado para adicionar um nova carta à coleção. A solicitação deve ser enviada como HTTP POST.\n\n### Corpo da Requisição\n\n- `Método`: POST\n    \n- `URL`: `localhost/ApiMagic/cartas/cadastro`\n    \n- `Authorization:`Token gerado no cadastro do usuário\n    \n- `nome` (text): O nome da carta.\n    \n- `tipo` (text): O tipo da carta.\n    \n- `custo_mana` (text): O custo de mana da carta.\n    \n- `descricao` (text): A descrição da carta.\n    \n- `raridade` (text): A raridade da carta.\n    \n- `colecao` (text): A coleção à qual a carta pertence.\n    \n- `imagem` (text): O caminho da imagem da carta.\n    \n\n### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Adiciona cartas ao Deck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost/ApiMagic/cartas/cadastradeck",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cartas",
+						"cadastradeck"
+					]
+				},
+				"description": "## Adiciona cartas ao deck\n\nEste endpoint da API é usado para adicionar uma carta já cadastrada ao deck.\n\n### Corpo da Requisição\n\n- `Método`: POST\n    \n- `URL: locallhost/ApiMagic/cartas/cadastradeck`\n    \n- `Authorization:`Token gerado no cadastro do usuário\n    \n- `id`(text): O id da carta cadastrada.\n    \n\n### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista Cartas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost/ApiMagic/cartas/lista",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cartas",
+						"lista"
+					]
+				},
+				"description": "# Obter lista de cartas\n\nEste endpoint recupera uma lista de cartas.\n\n### Corpo da Requisição\n\n- `Método`: GET\n    \n- `URL`: `localhost/ApiMagic/cartas/lista`\n    \n- `Authorization:`Token gerado no cadastro do usuário\n    \n\n#### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista as Cartas do Deck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/ApiMagic/cartas/deck",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cartas",
+						"deck"
+					]
+				},
+				"description": "## Lista de cartas do deck\n\nEste endpoint é usado para listar todas as cartas já adicionadas no deck.\n\n### Corpo da Requisição\n\n- `Método`: GET\n    \n- `URL: locallhost/ApiMagic/cartas/deck`\n    \n- `Authorization:`Token gerado no cadastro do usuário.\n    \n\n### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Cartas do Deck",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost/ApiMagic/cartas/removedeck",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ApiMagic",
+						"cartas",
+						"removedeck"
+					]
+				},
+				"description": "## Remove Cartas do Deck\n\nEste endpoint da API é usado para remover cartas que foram adicionadas ao Deck.\n\n### Corpo da Requisição\n\n- `Método`: DELETE\n    \n- `URL: locallhost/ApiMagic/cartas/removedeck`\n    \n- `Authorization:`Token gerado no cadastro do usuário\n    \n- `id`(text): O id da carta a ser removida.\n    \n\n### Resposta\n\nA resposta dessa solicitação retorna um objeto JSON com as seguintes propriedades:\n\n- `status` (boolean): Indica o status da solicitação.\n    \n- `titulo` (string): Fornece um título ou mensagem relacionada ao status da solicitação.\n    \n- `dados` (array): Contém os dados relacionados à solicitação.\n    \n- `versao` (string): Representa a versão da resposta."
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex; /* Adicionado: para centralizar verticalmente */
+            justify-content: center; /* Adicionado: para centralizar horizontalmente */
+            align-items: center; /* Adicionado: para centralizar verticalmente */
+            height: 100vh; /* Adicionado: para ocupar toda a altura da tela */
+            margin: 0; /* Adicionado: para remover margens padrão */
+            background-image: url('index.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;            
+        }
+        .container {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="file"]{
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 10px 10px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: #3389e5;
+        }        
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Entre no mundo de Magic</h2>
+        <form action="Login/processa_login.php" method="post">
+            <input type="text" name="usuario" placeholder="Usuário" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="file"  name="token" accept=".json">
+            <button type="submit">Login</button>
+        </form>
+        <p>Não tem cadastro? <a href="Cadastro/cadastro.php">Clique aqui</a> para se cadastrar.</p>
+    </div> 
+</body>
+</html>
